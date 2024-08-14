@@ -6,15 +6,37 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    font-size: 18px; /* Increased font size */
+    line-height: 1.6;
+    overflow: auto; /* Allows scrolling */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center container by default */
+    width: 100%;
+    min-height: 100vh; /* Ensures the wrapper takes at least the full viewport height */
+    box-sizing: border-box;
+    padding-top: 0px; /* Space for scrolling case */
+    position: relative; /* Allows the top margin adjustment */
 }
 
 .container {
     text-align: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 28px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Maximum width for the container */
+    width: 90%; /* Ensures the container is responsive */
+    box-sizing: border-box; /* Ensures padding and border are included in the width/height */
+}
+
+/* Ensure the padding-top does not affect the container if it's not needed */
+body:not(:has(.container:overflow)) .wrapper {
+    padding-top: 0; /* Remove extra padding if not scrolling */
 }
 
 h1 {
@@ -30,7 +52,7 @@ h1 {
 .folder {
     display: flex;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 .folder-icon {
@@ -48,7 +70,8 @@ h1 {
 }
 
 .folder a span {
-    margin-left: 15px;
+    margin-left: 10px;
+    text-align: left;
 }
 
 .folder a:hover .folder-icon {
